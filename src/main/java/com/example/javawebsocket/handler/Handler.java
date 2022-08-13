@@ -16,7 +16,14 @@ public class Handler extends TextWebSocketHandler {
 
     @Override
     protected void handleTextMessage(WebSocketSession session, TextMessage message) throws Exception {
-        System.out.println(message);
-        session.sendMessage(new TextMessage("received: "  + message));
+        System.out.println(message.getPayload());
+        if(message.getPayload().equals("init")){
+            System.out.println("client init");
+            session.sendMessage(new TextMessage("INIT DATA FROM SERVER!"));
+        }
+        else if(message.getPayload().equals("update")){
+            System.out.println("client update");
+            session.sendMessage(new TextMessage("UPDATE DATA..."));
+        }
     }
 }

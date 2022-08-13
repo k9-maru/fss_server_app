@@ -17,7 +17,7 @@ public class WebSocketConfig implements WebSocketConfigurer {
 
     @Override
     public void registerWebSocketHandlers(WebSocketHandlerRegistry registry) {
-        registry.addHandler(handler, "/test")
+        registry.addHandler(handler, "/topPrice")
                 .addInterceptors(new HttpSessionHandshakeInterceptor())
                 .setAllowedOriginPatterns("*")
                 .withSockJS();
